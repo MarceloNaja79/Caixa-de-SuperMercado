@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Caixa de Compras</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px auto;
+      max-width: 600px;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 { margin-bottom: 20px; }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #1e90ff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #187bcd;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    .resumo {
+      margin-top: 30px;
+      font-size: 18px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+  <h2>Caixa de Compras</h2>
+  
+  <input type="text" id="nome" placeholder="Nome do produto" />
+  <input type="number" id="preco" placeholder="Preço (R$)" />
+  <button onclick="adicionarProduto()">Adicionar</button>
+  
+  <ul id="listaProdutos"></ul>
+
+  <div class="resumo" id="resumo">
+    Total sem desconto: R$ 0,00<br>
+    Total com desconto: R$ 0,00<br>
+    Desconto aplicado: R$ 0,00
+  </div>
+
+  <script>
+    const produtos = [];
+
+    function adicionarProduto() {
+      const nomeInput = document.getElementById('nome');
+      const precoInput = document.getElementById('preco');
+
+      const nome = nomeInput.value.trim();
+      const preco = parseFloat(precoInput.value);
+
+      if (!nome || isNaN(preco) || preco <= 0) {
+        alert("Informe um nome válido e um preço maior que zero.");
+        return;
+      }
+
+      produtos.push({ nome, preco });
+      nomeInput.value = "";
+      precoInput.value = "";
+
+      atualizarLista();
+      atualizarTotais();
+    }
+
+    function atualizarLista() {
+      const ul = document.getElementById('listaProdutos');
+      ul.innerHTML = "";
+      produtos.forEach(prod => {
+        const li = document.createElement("li");
+        li.textContent = `${prod.nome} - R$ ${prod.preco.toFixed(2)}`;
+        ul.appendChild(li);
+      });
+    }
+
+    function atualizarTotais() {
+      let total = 0;
+      let totalDesconto = 0;
+
+      produtos.forEach(p => {
+        total += p.preco;
+        if (p.preco > 30) {
+          totalDesconto += p.preco * 0.9;
+        } else {
+          totalDesconto += p.preco;
+        }
+      });
+
+      const desconto = total - totalDesconto;
+
+      document.getElementById("resumo").innerHTML = `
+        Total sem desconto: R$ ${total.toFixed(2)}<br>
+        Total com desconto: R$ ${totalDesconto.toFixed(2)}<br>
+        Desconto aplicado: R$ ${desconto.toFixed(2)}
+      `;
+      
+    }
+  </script>
+</body>
+</html>
