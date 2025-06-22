@@ -6,7 +6,7 @@ Este projeto foi criado por Mim para ajudar Logistas a Visualizar os Produtos, V
 <img src="Capturar Caixa de SUPER M.PNG"/> 
 <figuri/>
 
-## ✅ Objetivo:
+## Objetivo:
 Criar uma página simples onde o usuário:
 Adiciona produtos com nome e preço
 Vê os produtos listados
@@ -14,7 +14,7 @@ Vê o total sem desconto, o total com desconto, e o valor economizado
 Tudo atualizado em tempo real
 
 
-✅ Recursos incluídos:
+## Recursos incluídos:
 Validação básica
 Desconto automático para produtos acima de R$30
 Cálculo automático ao adicionar produto
