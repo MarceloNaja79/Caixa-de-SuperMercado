@@ -7,3 +7,16 @@ Este projeto foi criado pensando em ajudar os logistas há saber o que esta send
 <figuri/>
 
 ## Estrutura HTML, CSS e JavScript
+### ✅ Objetivo:
+Criar uma página simples onde o usuário:
+Adiciona produtos com nome e preço
+Vê os produtos listados
+Vê o total sem desconto, o total com desconto, e o valor economizado
+Tudo atualizado em tempo real
+
+
+✅ Recursos incluídos:
+Validação básica
+Desconto automático para produtos acima de R$30
+Cálculo automático ao adicionar produto
+Interface leve e responsiva
