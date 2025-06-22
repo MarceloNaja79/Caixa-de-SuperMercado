@@ -16,4 +16,4 @@ Tudo atualizado em tempo real
 Validação básica
 Desconto automático para produtos acima de R$30
 Cálculo automático ao adicionar produto
-Interface leve e responsiva. Quer ver como Funciona? 
+Interface leve e responsiva. Quer ver como Funciona?<a href="" /> Ir para o Site  
